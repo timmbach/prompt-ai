@@ -28,3 +28,29 @@ This app is was built with Nextjs, next-auth, tailwind and nextjs api for the ba
 - edit a single prompt.
 - delete a single prompt.
 - any visitor can view any creator's profile and copy their shared prompts.
+
+## Installation
+
+1. Clone the repository:
+
+   ```
+   git clone https://github.com/timmbach/hux-assessment-frontend.git
+   ```
+
+2. Navigate into the project directory:
+
+```
+cd hux-assessment-frontend
+```
+
+3. Install dependencies
+
+```
+npm install
+```
+
+4. Start nextjs app
+
+```
+npm run dev
+```
