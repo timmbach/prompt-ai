@@ -12,6 +12,7 @@
 
 import React from "react";
 import PromptCard from "./PromptCard";
+import Loading from "@app/profile/loading";
 
 type Props = {
   name: string | null;
@@ -26,20 +27,24 @@ function Profile({ name, desc, data, handleEdit, handleDelete }: Props) {
   // console.log(data);
   return (
     <section className="w-full">
-      <h1 className="head_text text-left blue_gradient">{name} Profile</h1>
+      <h1 className="text-3xl font-semibold text-left blue_gradient">{name}</h1>
       <p className="desc text-left">{desc}</p>
 
       {/* user prompts */}
-      <div className="mt-16 prompt_layout">
-        {data.map((post: any) => (
-          <PromptCard
-            key={post._id}
-            post={post}
-            handleEdit={() => handleEdit && handleEdit(post)}
-            handleDelete={() => handleDelete && handleDelete(post)}
-          />
-        ))}
-      </div>
+      {data.length === 0 ? (
+        <Loading />
+      ) : (
+        <div className="mt-16 prompt_layout">
+          {data.map((post: any) => (
+            <PromptCard
+              key={post._id}
+              post={post}
+              handleEdit={() => handleEdit && handleEdit(post)}
+              handleDelete={() => handleDelete && handleDelete(post)}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 }

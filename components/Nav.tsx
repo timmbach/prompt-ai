@@ -54,7 +54,9 @@ function Nav({}: Props) {
           height={50}
         />
       </Link>
-      <p className="logo_text tracking-widest">prompt-ai</p>
+      <Link href="/" className="cursor-pointer">
+        <p className="logo_text tracking-widest">prompt-ai</p>
+      </Link>
 
       {/* get user form current session */}
       <div className="hidden sm:flex">

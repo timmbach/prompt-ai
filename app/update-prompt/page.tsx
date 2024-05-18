@@ -1,5 +1,6 @@
 "use client";
 
+import Loading from "@app/profile/loading";
 import Form from "@components/Form";
 import { useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -70,13 +71,17 @@ function UpdatePromptPage({}: Props) {
 
   return (
     <Suspense>
-      <Form
-        type="Edit"
-        post={post}
-        setPost={setPost}
-        submitting={submitting}
-        handleSubmit={updatePrompt}
-      />
+      {post.prompt == "" ? (
+        <Loading />
+      ) : (
+        <Form
+          type="Edit"
+          post={post}
+          setPost={setPost}
+          submitting={submitting}
+          handleSubmit={updatePrompt}
+        />
+      )}
     </Suspense>
   );
 }

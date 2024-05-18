@@ -3,23 +3,31 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import PromptCard from "./PromptCard";
 
+import Loading from "@app/profile/loading";
+
 type PromptCardListProps = {
   data: any;
   handleTagClick: any;
 };
 const PromptCardList = ({ data, handleTagClick }: PromptCardListProps) => {
   return (
-    <div className="mt-16 prompt_layout">
-      {data.map((post: any) => (
-        <PromptCard
-          key={post._id}
-          post={post}
-          handleTagClick={handleTagClick}
-          handleEdit={undefined}
-          handleDelete={undefined}
-        />
-      ))}
-    </div>
+    <>
+      {data.length == 0 ? (
+        <Loading />
+      ) : (
+        <div className="mt-16 prompt_layout">
+          {data.map((post: any) => (
+            <PromptCard
+              key={post._id}
+              post={post}
+              handleTagClick={handleTagClick}
+              handleEdit={undefined}
+              handleDelete={undefined}
+            />
+          ))}
+        </div>
+      )}
+    </>
   );
 };
 
@@ -37,6 +45,7 @@ function Feed({}: FeedProps) {
     const fetchPosts = async () => {
       const res = await fetch(`/api/prompt`);
       const data = await res.json();
+      console.log(data);
 
       setPosts(data);
     };
