@@ -1,6 +1,6 @@
 # Prompt-Ai
 
-This app was inspired by Adrian Hajdin from JSmastery and serves a collection of very useful and reuseable ai prompts from different users. Built with nextjs and next-auth. With this app you can create and authenticate (login and sign up) a user with google OAuth and the google cloud platform, create a reuseable prompt, fetch prompts that belong to you and all other creators, edit and delete your own prompts.
+This app was inspired by Adrian Hajdin from JSmastery and serves a collection of very useful and reuseable ai prompts from different creators. Built with nextjs and next-auth. With this app you can create and authenticate (login and sign up) a user with google OAuth and the google cloud platform, create a reuseable prompt, fetch prompts that belong to you and all other creators, edit and delete your own prompts.
 
 ## Table of Contents
 
