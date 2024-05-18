@@ -27,6 +27,7 @@ function Nav({}: Props) {
 
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
+  const [signInClicked, setSignInClicked] = useState(false);
 
   useEffect(() => {
     // presence of providers show that next authentication via google, github, etc is ready
@@ -36,9 +37,11 @@ function Nav({}: Props) {
       setProviders(response);
     };
     newProviders();
+    setSignInClicked(false);
   }, []);
 
   const handleSignIn = async (providerId: any) => {
+    setSignInClicked(true);
     await signIn(providerId);
   };
   // const handleSignOut = async () => {
@@ -91,6 +94,7 @@ function Nav({}: Props) {
                   key={provider.name}
                   onClick={() => handleSignIn(provider.id)}
                   className="black_btn"
+                  disabled={signInClicked}
                 >
                   Sign In
                 </button>
