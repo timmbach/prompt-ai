@@ -53,7 +53,7 @@ function Feed({}: FeedProps) {
       setPosts(data);
     };
 
-    fetchPosts();
+    if (pathName == "/") fetchPosts();
   }, [pathName]);
 
   const filterPrompts = (searchText: string) => {
