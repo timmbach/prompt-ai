@@ -58,7 +58,7 @@ function ProfilePage({}: Props) {
 
   return (
     <Profile
-      name="My"
+      name="My Profile"
       desc="Welcome to your profile page"
       data={myPosts}
       handleEdit={handleEdit}

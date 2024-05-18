@@ -4,6 +4,7 @@ import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import PromptCard from "./PromptCard";
 
 import Loading from "@app/profile/loading";
+import { usePathname } from "next/navigation";
 
 type PromptCardListProps = {
   data: any;
@@ -41,6 +42,8 @@ function Feed({}: FeedProps) {
   );
   const [searchedResults, setSearchedResults] = useState([]);
 
+  const pathName = usePathname();
+
   useEffect(() => {
     const fetchPosts = async () => {
       const res = await fetch(`/api/prompt`);
@@ -51,7 +54,7 @@ function Feed({}: FeedProps) {
     };
 
     fetchPosts();
-  }, []);
+  }, [pathName]);
 
   const filterPrompts = (searchText: string) => {
     const regex = new RegExp(searchText, "i"); // 'i' flag for case-insensitive search
