@@ -46,7 +46,7 @@ function Form({ type, post, setPost, submitting, handleSubmit }: Props) {
           <span className="font-satoshi font-semibold text-base text-gray-700">
             Tag{" "}
             <span className="font-normal">
-              (#product, #webdevelopment, #idea)
+              (webdevelopment, math, finance, engineering)
             </span>
           </span>
           <input
