@@ -25,12 +25,14 @@ function PromptCard({ post, handleTagClick, handleEdit, handleDelete }: Props) {
 
     if (post.creator._id === session?.user.id) return router.push("/profile");
 
-    router.push(`/profile/${post.creator._id}?name=${post.creator.username}`);
+    router.push(
+      `/profile/${post?.creator?._id}?name=${post?.creator?.username}`
+    );
   };
 
   const handleCopy = () => {
-    setCopied(post.prompt);
-    navigator.clipboard.writeText(post.prompt);
+    setCopied(post?.prompt);
+    navigator.clipboard.writeText(post?.prompt);
     setTimeout(() => setCopied(""), 3000);
   };
   return (
@@ -49,10 +51,10 @@ function PromptCard({ post, handleTagClick, handleEdit, handleDelete }: Props) {
           />
           <div className="flex flex-col">
             <h3 className="font-satoshi font-semibold text-gray-900">
-              {post.creator.username}
+              {post?.creator?.username}
             </h3>
             <p className="font-inter text-sm text-gray-500">
-              {post.creator.email}
+              {post?.creator?.email}
             </p>
           </div>
         </div>
@@ -61,7 +63,7 @@ function PromptCard({ post, handleTagClick, handleEdit, handleDelete }: Props) {
         <div className="copy_btn" onClick={handleCopy}>
           <Image
             src={
-              copied === post.prompt
+              copied === post?.prompt
                 ? "/assets/icons/tick.svg"
                 : "/assets/icons/copy.svg"
             }
@@ -73,14 +75,14 @@ function PromptCard({ post, handleTagClick, handleEdit, handleDelete }: Props) {
       </div>
 
       {/* display prompt */}
-      <p className="my-4 font-satoshi text-sm text-gray-700">{post.prompt}</p>
+      <p className="my-4 font-satoshi text-sm text-gray-700">{post?.prompt}</p>
       <p
         className="font-inter text-sm blue_gradient cursor-pointer"
-        onClick={() => handleTagClick && handleTagClick(post.tag)}
+        onClick={() => handleTagClick && handleTagClick(post?.tag)}
       >
-        #{post.tag}
+        #{post?.tag}
       </p>
-      {session?.user?.id === post.creator._id && pathName === "/profile" && (
+      {session?.user?.id === post?.creator?._id && pathName === "/profile" && (
         <div className="mt-5 flex_center gap-4 border-t border-gray-100 pt-3">
           <p
             className="font-inter text-sm green_gradient cursor-pointer font-semibold hover:font-bold"
