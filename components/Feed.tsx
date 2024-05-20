@@ -5,7 +5,7 @@ import PromptCard from "./PromptCard";
 
 import Loading from "@app/profile/loading";
 import { usePathname } from "next/navigation";
-import { cookies } from "next/headers";
+// import { cookies } from "next/headers";
 
 type PromptCardListProps = {
   data: any;
@@ -46,7 +46,6 @@ function Feed({}: FeedProps) {
   const pathName = usePathname();
 
   useEffect(() => {
-    const _cookies = cookies();
     const fetchPosts = async () => {
       const res = await fetch(`/api/prompt`, { cache: "no-store" });
       const data = await res.json();
