@@ -9,6 +9,7 @@ import { cookies } from "next/headers";
 //   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
 // });
 
+const _ = cookies();
 const handler = NextAuth({
   providers: [
     Google({
@@ -29,7 +30,6 @@ const handler = NextAuth({
       return session;
     },
     async signIn({ profile }) {
-      const _cookies = cookies();
       try {
         await connectToDB();
 
