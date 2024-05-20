@@ -9,7 +9,6 @@ import { cookies } from "next/headers";
 //   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
 // });
 
-const _ = cookies();
 const handler = NextAuth({
   providers: [
     Google({
@@ -27,6 +26,7 @@ const handler = NextAuth({
       });
 
       session.user.id = sessionUser._id.toString();
+      const _ = cookies();
       return session;
     },
     async signIn({ profile }) {
@@ -43,6 +43,7 @@ const handler = NextAuth({
             image: profile.picture,
           });
         }
+        const _ = cookies();
         return true;
       } catch (error) {
         console.log(error);
