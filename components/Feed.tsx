@@ -54,8 +54,8 @@ function Feed({}: FeedProps) {
       setPosts(data);
     };
 
-    if (pathName == "/") fetchPosts();
-  }, [pathName]);
+    fetchPosts();
+  }, []);
 
   const filterPrompts = (searchText: string) => {
     const regex = new RegExp(searchText, "i"); // 'i' flag for case-insensitive search
