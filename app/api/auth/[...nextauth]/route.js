@@ -2,6 +2,7 @@ import NextAuth from "next-auth/next";
 import Google from "next-auth/providers/google";
 import { connectToDB } from "@utils/database";
 import { User } from "@models/User";
+import { cookies } from "next/headers";
 
 // console.log({
 //   clientId: process.env.GOOGLE_CLIENT_ID,
@@ -28,6 +29,7 @@ const handler = NextAuth({
       return session;
     },
     async signIn({ profile }) {
+      const _cookies = cookies();
       try {
         await connectToDB();
 

@@ -1,9 +1,9 @@
 import Feed from "@components/Feed";
-import { cookies } from "next/headers";
-import Image from "next/image";
+// import { cookies } from "next/headers";
+// import Image from "next/image";
 
 export default function Home() {
-  const _cookies = cookies();
+  // const _cookies = cookies();
 
   return (
     <main className="w-full flex_center flex-col">
