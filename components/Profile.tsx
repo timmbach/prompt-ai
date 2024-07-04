@@ -26,7 +26,7 @@ type Props = {
 function Profile({ name, desc, data, handleEdit, handleDelete }: Props) {
   // console.log(data);
   return (
-    <section className="w-full">
+    <section className="w-full h-full">
       <h1 className="text-3xl font-semibold text-left blue_gradient">{name}</h1>
       <p className="desc text-left">{desc}</p>
 
