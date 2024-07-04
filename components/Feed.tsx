@@ -14,21 +14,23 @@ type PromptCardListProps = {
 const PromptCardList = ({ data, handleTagClick }: PromptCardListProps) => {
   return (
     <>
-      {data.length == 0 ? (
-        <Loading />
-      ) : (
-        <div className="mt-16 prompt_layout">
-          {data.map((post: any) => (
-            <PromptCard
-              key={post._id}
-              post={post}
-              handleTagClick={handleTagClick}
-              handleEdit={undefined}
-              handleDelete={undefined}
-            />
-          ))}
-        </div>
-      )}
+      <section className="w-full">
+        {data.length == 0 ? (
+          <Loading />
+        ) : (
+          <div className="mt-16 prompt_layout">
+            {data.map((post: any) => (
+              <PromptCard
+                key={post._id}
+                post={post}
+                handleTagClick={handleTagClick}
+                handleEdit={undefined}
+                handleDelete={undefined}
+              />
+            ))}
+          </div>
+        )}
+      </section>
     </>
   );
 };
